@@ -187,6 +187,36 @@ export const projects = [
     stack: ['React.js', 'Python', 'AWS S3', 'EC2', 'SQS', 'DynamoDB'],
     accent: 'emerald',
   },
+  {
+    name: 'Rad Room',
+    category: 'Loyalty Platform · SaaS',
+    year: '2025',
+    url: 'https://radroom.in/',
+    image: null,
+    blurb:
+      'A loyalty and rewards platform built for gaming cafés, letting venues run point accumulation, reward redemption, and customer engagement from one digital system.',
+    metrics: [
+      { k: 'SaaS', v: 'loyalty platform' },
+      { k: 'Live', v: 'in production' },
+    ],
+    stack: ['React.js', 'Node.js', 'Tailwind', 'PostgreSQL'],
+    accent: 'amber',
+  },
+  {
+    name: 'Driptionary',
+    category: 'Streetwear Resale · Shopify',
+    year: '2025',
+    url: 'https://driptionary.in/',
+    image: null,
+    blurb:
+      'A Shopify storefront for Retail Therapy selling authenticated sneakers, bags, and streetwear, with an "Instant Ship" inventory flow and WhatsApp-based sourcing requests.',
+    metrics: [
+      { k: '200+', v: 'sneakers & apparel' },
+      { k: '100%', v: 'authenticated' },
+    ],
+    stack: ['Shopify', 'Liquid', 'JavaScript', 'Tailwind'],
+    accent: 'rose',
+  },
 ]
 
 export const navLinks = [

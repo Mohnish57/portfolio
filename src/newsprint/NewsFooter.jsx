@@ -58,7 +58,7 @@ export default function NewsFooter() {
 
         <div className="mt-8 flex flex-col items-center justify-between gap-2 border-t border-news-ink pt-4 font-mono text-[10px] uppercase tracking-widest text-neutral-500 sm:flex-row">
           <span>© {profile.name} · All rights reserved</span>
-          <span>Built with React · Set in Playfair &amp; Lora</span>
+          <span>Built with React</span>
         </div>
       </div>
     </footer>
