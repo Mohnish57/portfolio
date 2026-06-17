@@ -12,9 +12,13 @@ export function useLenis() {
     if (reduce) return
 
     const lenis = new Lenis({
-      duration: 1.1,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      duration: 1.6,
+      // Smooth expo-out glide that eases gently to a stop.
+      easing: (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)),
       smoothWheel: true,
+      wheelMultiplier: 0.9,
+      syncTouch: true,
+      touchMultiplier: 1.5,
     })
 
     lenis.on('scroll', ScrollTrigger.update)
