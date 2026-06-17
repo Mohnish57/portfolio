@@ -6,23 +6,13 @@ export default function NewsHero() {
   return (
     <section id="top" className="newsprint-texture border-b-4 border-news-ink">
       <div className="mx-auto max-w-screen-xl px-4">
-        {/* Breaking strip */}
-        <div className="flex items-center gap-3 border-b border-news-ink py-2.5">
-          <span className="bg-news-red px-2 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-white">
-            Breaking
-          </span>
-          <span className="font-mono text-[11px] uppercase tracking-widest text-neutral-600">
-            Full-stack developer available for hire · {profile.location}
-          </span>
-        </div>
-
         {/* Asymmetric 8 / 4 split */}
         <div className="grid grid-cols-1 lg:grid-cols-12">
           {/* Headline column */}
           <div className="border-news-ink py-8 lg:col-span-8 lg:border-r lg:py-12 lg:pr-10">
             <Kicker className="text-news-red">The Front Page</Kicker>
             <h1 className="mt-4 font-serif text-5xl font-black leading-[0.9] tracking-tighter text-news-ink sm:text-7xl lg:text-8xl">
-              Creative full-stack developer &amp; engineer.
+              Creative full-stack developer.
             </h1>
 
             <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
