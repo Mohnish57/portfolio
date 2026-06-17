@@ -44,12 +44,12 @@ export default function NewsHero() {
           </div>
 
           {/* Portrait column */}
-          <figure className="border-news-ink py-8 lg:col-span-4 lg:py-12 lg:pl-10">
+          <figure className="flex flex-col justify-center border-news-ink py-8 lg:col-span-4 lg:py-12 lg:pl-10">
             <div className="border border-news-ink bg-neutral-200">
               <img
                 src={profile.photo}
                 alt={`Portrait of ${profile.name}`}
-                className="h-full w-full object-cover grayscale transition-all duration-300 hover:grayscale-0 hover:sepia-[.5]"
+                className="h-full w-full object-cover transition-transform duration-300 hover:scale-[1.02]"
                 loading="eager"
               />
             </div>
