@@ -44,7 +44,14 @@ export default function NewsFooter() {
                   {profile.email}
                 </a>
               </li>
-              <li className="text-neutral-600">{profile.phone}</li>
+              <li>
+                <a
+                  href={`tel:${profile.phone.replace(/\s+/g, '')}`}
+                  className="hover:text-news-red"
+                >
+                  {profile.phone}
+                </a>
+              </li>
             </ul>
           </div>
         </div>
