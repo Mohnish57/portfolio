@@ -1,0 +1,203 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --ink: #1e293b;
+  --accent: #8b5cf6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Offset so anchor jumps + JS section-settle clear the sticky masthead. */
+  scroll-padding-top: 84px;
+}
+
+body {
+  margin: 0;
+  background-color: #ffffff;
+  color: #111111;
+  font-family: 'Lora', Georgia, serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Contain any horizontal overflow WITHOUT breaking position: sticky
+   (overflow-x: hidden on html/body silently disables sticky headers). */
+.newsprint-root {
+  overflow-x: clip;
+}
+
+::selection {
+  background: #cc0000;
+  color: #ffffff;
+}
+
+/* Chunky themed scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: #fffdf5;
+  border-left: 2px solid #1e293b;
+}
+::-webkit-scrollbar-thumb {
+  background: #8b5cf6;
+  border: 2px solid #1e293b;
+  border-radius: 999px;
+}
+
+@layer components {
+  .container-px {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  /* The "Candy" primary button */
+  .btn-candy {
+    @apply inline-flex items-center gap-2 rounded-full border-2 border-ink bg-accent px-6 py-3
+      font-display font-bold text-white shadow-pop transition-all duration-300;
+    transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .btn-candy:hover {
+    @apply -translate-x-0.5 -translate-y-0.5 shadow-pop-md;
+  }
+  .btn-candy:active {
+    @apply translate-x-0.5 translate-y-0.5 shadow-pop-sm;
+  }
+
+  /* Secondary outline button: fills amber on hover */
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 rounded-full border-2 border-ink bg-transparent px-6 py-3
+      font-display font-bold text-ink transition-all duration-300;
+    transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .btn-ghost:hover {
+    @apply bg-pop-amber;
+  }
+
+  /* The "Sticker" card */
+  .card-sticker {
+    @apply rounded-lg border-2 border-ink bg-paper shadow-pop-lg;
+  }
+
+  .eyebrow {
+    @apply font-display text-xs font-extrabold uppercase tracking-[0.18em] text-accent;
+  }
+
+  /* Pill tag / chip */
+  .chip {
+    @apply inline-flex items-center rounded-full border-2 border-ink bg-paper px-3 py-1
+      font-sans text-sm font-semibold text-ink;
+  }
+}
+
+@layer utilities {
+  /* Dot-grid texture */
+  .bg-dotgrid {
+    background-image: radial-gradient(#1e293b 1.4px, transparent 1.4px);
+    background-size: 22px 22px;
+  }
+  /* Diagonal stripes fill */
+  .bg-stripes {
+    background-image: repeating-linear-gradient(
+      45deg,
+      #1e293b 0,
+      #1e293b 2px,
+      transparent 2px,
+      transparent 10px
+    );
+  }
+  .text-stroke-ink {
+    -webkit-text-stroke: 2px #1e293b;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* ─────────────────────────────────────────────
+   NEWSPRINT VARIANT (scoped under .newsprint-root)
+   Editorial, high-contrast, sharp-cornered.
+   ───────────────────────────────────────────── */
+.newsprint-root {
+  min-height: 100vh;
+  background-color: #ffffff;
+  color: #111111;
+  font-family: 'Lora', Georgia, serif;
+}
+
+.newsprint-root ::selection {
+  background: #cc0000;
+  color: #f9f9f7;
+}
+
+/* Sharp corners everywhere in the variant */
+.newsprint-root *,
+.sharp {
+  border-radius: 0 !important;
+}
+
+/* Fine graph-paper texture for major sections */
+.newsprint-texture {
+  position: relative;
+}
+.newsprint-texture::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(0deg, transparent 98%, rgba(0, 0, 0, 0.025) 100%),
+    linear-gradient(90deg, transparent 98%, rgba(0, 0, 0, 0.025) 100%);
+  background-size: 3px 3px;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* Hard offset "newspaper cutout" hover */
+.hard-shadow-hover {
+  transition: box-shadow 0.2s ease-out, transform 0.2s ease-out;
+}
+.hard-shadow-hover:hover {
+  box-shadow: 4px 4px 0px 0px #111111;
+  transform: translate(-2px, -2px);
+}
+
+/* Drop cap for editorial intros */
+.dropcap::first-letter {
+  float: left;
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 4.2rem;
+  line-height: 0.8;
+  padding: 0.1rem 0.6rem 0 0;
+  color: #111111;
+}
+.dropcap-red::first-letter {
+  color: #cc0000;
+}
+
