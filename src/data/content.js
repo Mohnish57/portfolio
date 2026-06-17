@@ -189,15 +189,15 @@ export const projects = [
   },
   {
     name: 'Rad Room',
-    category: 'Loyalty Platform · SaaS',
+    category: 'Gaming Café · Web Platform',
     year: '2025',
     url: 'https://radroom.in/',
-    image: null,
+    image: '/projects/radroom.png',
     blurb:
-      'A loyalty and rewards platform built for gaming cafés, letting venues run point accumulation, reward redemption, and customer engagement from one digital system.',
+      'Brand and storefront site for a gaming café, covering its crafted menu, events, and membership rewards, built to drive bookings and sign-ups from one experience.',
     metrics: [
-      { k: 'SaaS', v: 'loyalty platform' },
       { k: 'Live', v: 'in production' },
+      { k: 'Café + Play', v: 'one venue' },
     ],
     stack: ['React.js', 'Node.js', 'Tailwind', 'PostgreSQL'],
     accent: 'amber',
@@ -207,7 +207,7 @@ export const projects = [
     category: 'Streetwear Resale · Shopify',
     year: '2025',
     url: 'https://driptionary.in/',
-    image: null,
+    image: '/projects/driptionary.png',
     blurb:
       'A Shopify storefront for Retail Therapy selling authenticated sneakers, bags, and streetwear, with an "Instant Ship" inventory flow and WhatsApp-based sourcing requests.',
     metrics: [
