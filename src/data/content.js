@@ -6,16 +6,17 @@
 export const profile = {
   name: 'Mohnish Sawlani',
   initials: 'MS',
-  photo: '/profile.jpg',
-  roles: ['Full Stack Developer', 'Creative Engineer', 'UI/UX-Minded Builder'],
-  tagline: 'I build fast, AI-powered web products end to end.',
+  photo: '/mohnish-dp.png',
+  roles: ['Senior Frontend Engineer', 'Frontend Architect', 'React Engineer'],
+  tagline: 'Scalable React applications, frontend architecture, and performance.',
   location: 'Pune, India',
   email: 'sawlanimohnish@gmail.com',
   phone: '+91 9131421812',
-  github: 'https://github.com/', // ← add your GitHub URL
-  linkedin: 'https://linkedin.com/', // ← add your LinkedIn URL
+  resume: '/Mohnish_Sawlani_SFR_Resume.pdf',
+  github: 'https://github.com/mohnish57/',
+  linkedin: 'https://www.linkedin.com/in/mohnish-sawlani/',
   summary:
-    'Full Stack Developer with 4+ years building SaaS platforms, AI-integrated products, and headless Shopify commerce using React.js, Next.js, Node.js, Python/FastAPI, GraphQL, and AWS. I take strong end-to-end ownership across frontend performance, backend services, and AI/automation workflows in e-commerce, AI, fintech, and media.',
+    'Senior Frontend Engineer with 4+ years building scalable React and TypeScript applications. I lead frontend architecture, performance, and AI-enabled products, with backend depth across Node.js, GraphQL, and AWS when a feature needs it.',
 }
 
 export const stats = [
@@ -30,57 +31,27 @@ export const keyPointers = ['SEO', 'UI/UX', 'Performance', 'AI-Enabled']
 export const skillGroups = [
   {
     title: 'Frontend',
-    items: [
-      'React.js',
-      'Next.js',
-      'Astro',
-      'Redux',
-      'Tailwind CSS',
-      'Framer Motion',
-      'HTML5',
-      'CSS3',
-    ],
+    items: ['React', 'Next.js', 'TypeScript', 'Redux', 'Tailwind'],
   },
   {
-    title: 'Backend',
-    items: ['Node.js', 'Express.js', 'FastAPI', 'REST APIs', 'GraphQL', 'WebSockets', 'SSE'],
+    title: 'Architecture',
+    items: ['Design Systems', 'Performance', 'State Management', 'Component Patterns'],
   },
   {
-    title: 'AI & Automation',
-    items: [
-      'AI/LLM API Integration',
-      'Workflow Automation',
-      'Prompt Engineering',
-      'Inference Pipelines',
-      'ETL Automation',
-    ],
+    title: 'Backend Integration',
+    items: ['Node.js', 'GraphQL', 'FastAPI', 'REST'],
   },
   {
-    title: 'Languages',
-    items: ['JavaScript', 'TypeScript', 'Python', 'SQL', 'Liquid'],
+    title: 'Cloud',
+    items: ['AWS', 'Vercel'],
   },
   {
-    title: 'Data & Cloud',
-    items: [
-      'MongoDB',
-      'PostgreSQL',
-      'Supabase',
-      'DynamoDB',
-      'Redis',
-      'AWS (S3/EC2/Lambda/SQS/IAM)',
-      'Vercel',
-    ],
+    title: 'AI',
+    items: ['LLM Integration', 'Automation', 'Inference Pipelines'],
   },
   {
-    title: 'Commerce & Tooling',
-    items: [
-      'Shopify Plus',
-      'Headless Commerce',
-      'Shopify GraphQL',
-      'GitHub Actions',
-      'Playwright',
-      'Figma',
-    ],
+    title: 'Commerce',
+    items: ['Shopify Plus', 'Headless', 'Liquid'],
   },
 ]
 
@@ -104,24 +75,27 @@ export const marqueeTech = [
 
 export const experience = [
   {
-    role: 'Software Development Engineer II',
+    role: 'Frontend Lead · SDE II',
     company: 'Wednesday Solutions',
     location: 'Pune, India',
-    period: 'Mar 2025 - Present',
+    period: 'Mar 2025 — Present',
+    summary: 'Leading frontend architecture across AI and commerce products for enterprise clients.',
     url: null,
   },
   {
-    role: 'Senior Web Developer',
-    company: 'Biz Lighting Pvt Ltd',
+    role: 'Senior Frontend Engineer',
+    company: 'Biz Lighting',
     location: 'Gurgaon, India',
-    period: 'Jul 2023 - Feb 2025',
+    period: 'Jul 2023 — Feb 2025',
+    summary: 'Built and scaled headless Shopify storefronts and the React tooling behind them.',
     url: null,
   },
   {
-    role: 'Software Developer',
+    role: 'Frontend Engineer',
     company: 'Cybrom Technology',
     location: 'Bhopal / Bangalore, India',
-    period: 'May 2022 - May 2023',
+    period: 'May 2022 — May 2023',
+    summary: 'Shipped React dashboards and moderation workflows for an AI platform.',
     url: 'https://cybrom.com/',
   },
 ]
@@ -140,7 +114,6 @@ export const projects = [
       { k: '100+', v: 'creators building' },
     ],
     stack: ['React', 'Next.js', 'Node.js', 'Tailwind', 'Stripe'],
-    accent: 'cyan',
   },
   {
     name: 'Sage',
@@ -155,7 +128,6 @@ export const projects = [
       { k: '$15→$0.20', v: 'per video' },
     ],
     stack: ['React.js', 'FastAPI', 'GraphQL', 'Supabase', 'AWS Lambda', 'WebSockets'],
-    accent: 'violet',
   },
   {
     name: 'Conduit Commerce',
@@ -170,7 +142,6 @@ export const projects = [
       { k: '2wk → 1d', v: 'onboarding' },
     ],
     stack: ['Shopify Plus', 'Liquid', 'GraphQL', 'Python', 'SQL'],
-    accent: 'fuchsia',
   },
   {
     name: 'Media Firewall',
@@ -185,7 +156,6 @@ export const projects = [
       { k: '32', v: 'regions' },
     ],
     stack: ['React.js', 'Python', 'AWS S3', 'EC2', 'SQS', 'DynamoDB'],
-    accent: 'emerald',
   },
   {
     name: 'Rad Room',
@@ -200,7 +170,6 @@ export const projects = [
       { k: 'Café + Play', v: 'one venue' },
     ],
     stack: ['React.js', 'Node.js', 'Tailwind', 'PostgreSQL'],
-    accent: 'amber',
   },
   {
     name: 'Driptionary',
@@ -215,7 +184,6 @@ export const projects = [
       { k: '100%', v: 'authenticated' },
     ],
     stack: ['Shopify', 'Liquid', 'JavaScript', 'Tailwind'],
-    accent: 'rose',
   },
 ]
 

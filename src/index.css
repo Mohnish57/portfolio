@@ -2,10 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─────────────────────────────────────────────
+   NEWSPRINT THEME
+   "All the news that's fit to print." Warm cream,
+   ink black, one editorial red. Sharp corners,
+   visible grid borders, serif drama, hard shadows.
+   ───────────────────────────────────────────── */
+
 :root {
   color-scheme: light;
-  --ink: #1e293b;
-  --accent: #8b5cf6;
+  --ink: #111111;
+  --paper: #ffffff;
+  --red: #cc0000;
 }
 
 * {
@@ -14,7 +22,6 @@
 
 html {
   scroll-behavior: smooth;
-  /* Offset so anchor jumps + JS section-settle clear the sticky masthead. */
   scroll-padding-top: 84px;
 }
 
@@ -27,10 +34,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Contain any horizontal overflow WITHOUT breaking position: sticky
-   (overflow-x: hidden on html/body silently disables sticky headers). */
-.newsprint-root {
+/* Contain horizontal overflow WITHOUT breaking position: sticky. */
+.app-root {
   overflow-x: clip;
+  /* Subtle 4×4 dot pattern across the whole page. */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23111111' fill-opacity='0.04' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+/* Sharp corners everywhere — no exceptions. */
+.app-root *,
+.sharp {
+  border-radius: 0 !important;
 }
 
 ::selection {
@@ -38,86 +52,103 @@ body {
   color: #ffffff;
 }
 
-/* Chunky themed scrollbar */
+/* Chunky themed scrollbar. */
 ::-webkit-scrollbar {
   width: 12px;
 }
 ::-webkit-scrollbar-track {
-  background: #fffdf5;
-  border-left: 2px solid #1e293b;
+  background: #ffffff;
+  border-left: 2px solid #111111;
 }
 ::-webkit-scrollbar-thumb {
-  background: #8b5cf6;
-  border: 2px solid #1e293b;
-  border-radius: 999px;
+  background: #111111;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #cc0000;
 }
 
 @layer components {
-  .container-px {
-    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  /* Uppercase mono section label ("kicker"). */
+  .kicker {
+    @apply font-mono text-xs font-medium uppercase tracking-widest text-foreground;
   }
 
-  /* The "Candy" primary button */
-  .btn-candy {
-    @apply inline-flex items-center gap-2 rounded-full border-2 border-ink bg-accent px-6 py-3
-      font-display font-bold text-white shadow-pop transition-all duration-300;
-    transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+  /* ── Buttons ───────────────────────────────── */
+  /* Solid: black fill, inverts on hover. */
+  .btn-primary {
+    @apply inline-flex min-h-[44px] items-center justify-center gap-2 border border-foreground
+      bg-foreground px-6 py-3 font-mono text-xs font-medium uppercase tracking-widest
+      text-background transition-all duration-200 hover:bg-background hover:text-foreground;
   }
-  .btn-candy:hover {
-    @apply -translate-x-0.5 -translate-y-0.5 shadow-pop-md;
+  /* Outline: fills black on hover. */
+  .btn-outline {
+    @apply inline-flex min-h-[44px] items-center justify-center gap-2 border border-foreground
+      bg-transparent px-6 py-3 font-mono text-xs font-medium uppercase tracking-widest
+      text-foreground transition-all duration-200 hover:bg-foreground hover:text-background;
   }
-  .btn-candy:active {
-    @apply translate-x-0.5 translate-y-0.5 shadow-pop-sm;
-  }
-
-  /* Secondary outline button: fills amber on hover */
-  .btn-ghost {
-    @apply inline-flex items-center gap-2 rounded-full border-2 border-ink bg-transparent px-6 py-3
-      font-display font-bold text-ink transition-all duration-300;
-    transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
-  .btn-ghost:hover {
-    @apply bg-pop-amber;
+  .btn-secondary {
+    @apply btn-outline;
   }
 
-  /* The "Sticker" card */
-  .card-sticker {
-    @apply rounded-lg border-2 border-ink bg-paper shadow-pop-lg;
-  }
-
-  .eyebrow {
-    @apply font-display text-xs font-extrabold uppercase tracking-[0.18em] text-accent;
-  }
-
-  /* Pill tag / chip */
+  /* Bordered sharp chip. */
   .chip {
-    @apply inline-flex items-center rounded-full border-2 border-ink bg-paper px-3 py-1
-      font-sans text-sm font-semibold text-ink;
+    @apply inline-flex items-center border border-foreground bg-transparent px-3 py-1
+      font-mono text-xs font-medium uppercase tracking-wide text-foreground;
   }
 }
 
 @layer utilities {
-  /* Dot-grid texture */
+  /* Fine graph-paper texture for major sections. */
+  .newsprint-texture {
+    position: relative;
+  }
+  .newsprint-texture::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(0deg, transparent 98%, rgba(0, 0, 0, 0.025) 100%),
+      linear-gradient(90deg, transparent 98%, rgba(0, 0, 0, 0.025) 100%);
+    background-size: 3px 3px;
+    pointer-events: none;
+    opacity: 0.6;
+  }
+
+  /* Hard offset "newspaper cutout" hover. */
+  .hard-shadow-hover {
+    transition: box-shadow 0.2s ease-out, transform 0.2s ease-out;
+  }
+  .hard-shadow-hover:hover {
+    box-shadow: 4px 4px 0px 0px #111111;
+    transform: translate(-2px, -2px);
+  }
+
+  /* Halftone dot fill for image placeholders. */
   .bg-dotgrid {
-    background-image: radial-gradient(#1e293b 1.4px, transparent 1.4px);
-    background-size: 22px 22px;
+    background-image: radial-gradient(#111111 1px, transparent 1px);
+    background-size: 16px 16px;
   }
-  /* Diagonal stripes fill */
-  .bg-stripes {
-    background-image: repeating-linear-gradient(
-      45deg,
-      #1e293b 0,
-      #1e293b 2px,
-      transparent 2px,
-      transparent 10px
-    );
+
+  /* Drop cap for editorial intros. */
+  .dropcap::first-letter {
+    float: left;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 4.2rem;
+    line-height: 0.8;
+    padding: 0.1rem 0.6rem 0 0;
+    color: #111111;
   }
-  .text-stroke-ink {
-    -webkit-text-stroke: 2px #1e293b;
+  .dropcap-red::first-letter {
+    color: #cc0000;
   }
 }
 
-/* Respect reduced motion */
+/* Accessible focus ring. */
+:where(a, button, input, textarea, [tabindex]):focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #111111;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -129,7 +160,7 @@ body {
   }
 }
 
-/* Lenis */
+/* Lenis smooth scroll. */
 html.lenis,
 html.lenis body {
   height: auto;
@@ -137,67 +168,3 @@ html.lenis body {
 .lenis.lenis-smooth {
   scroll-behavior: auto !important;
 }
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
-
-/* ─────────────────────────────────────────────
-   NEWSPRINT VARIANT (scoped under .newsprint-root)
-   Editorial, high-contrast, sharp-cornered.
-   ───────────────────────────────────────────── */
-.newsprint-root {
-  min-height: 100vh;
-  background-color: #ffffff;
-  color: #111111;
-  font-family: 'Lora', Georgia, serif;
-}
-
-.newsprint-root ::selection {
-  background: #cc0000;
-  color: #f9f9f7;
-}
-
-/* Sharp corners everywhere in the variant */
-.newsprint-root *,
-.sharp {
-  border-radius: 0 !important;
-}
-
-/* Fine graph-paper texture for major sections */
-.newsprint-texture {
-  position: relative;
-}
-.newsprint-texture::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: linear-gradient(0deg, transparent 98%, rgba(0, 0, 0, 0.025) 100%),
-    linear-gradient(90deg, transparent 98%, rgba(0, 0, 0, 0.025) 100%);
-  background-size: 3px 3px;
-  pointer-events: none;
-  opacity: 0.6;
-}
-
-/* Hard offset "newspaper cutout" hover */
-.hard-shadow-hover {
-  transition: box-shadow 0.2s ease-out, transform 0.2s ease-out;
-}
-.hard-shadow-hover:hover {
-  box-shadow: 4px 4px 0px 0px #111111;
-  transform: translate(-2px, -2px);
-}
-
-/* Drop cap for editorial intros */
-.dropcap::first-letter {
-  float: left;
-  font-family: 'Playfair Display', serif;
-  font-weight: 900;
-  font-size: 4.2rem;
-  line-height: 0.8;
-  padding: 0.1rem 0.6rem 0 0;
-  color: #111111;
-}
-.dropcap-red::first-letter {
-  color: #cc0000;
-}
-
