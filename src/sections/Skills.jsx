@@ -9,7 +9,6 @@ export default function Skills() {
   return (
     <Section id="skills" tone="muted">
       <SectionHeading
-        index="02"
         eyebrow="The Index"
         title="The stack I build with."
         sub="Frontend-first, with the architecture, backend, and cloud depth to ship complete products."

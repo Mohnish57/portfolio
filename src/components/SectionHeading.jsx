@@ -3,7 +3,6 @@ import Reveal from './Reveal'
 // Editorial section header: a mono kicker (index + label) over a heavy rule,
 // then a massive serif headline. The `count` rides at the right of the kicker.
 export default function SectionHeading({
-  index,
   eyebrow,
   title,
   sub,
@@ -14,7 +13,7 @@ export default function SectionHeading({
   const ink = tone === 'dark' ? 'text-background' : 'text-foreground'
   const meta = tone === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
   const rule = tone === 'dark' ? 'border-background' : 'border-foreground'
-  const kicker = [index, eyebrow].filter(Boolean).join(' · ')
+  const kicker = eyebrow
 
   return (
     <div className={`mb-10 border-b-4 ${rule} pb-5 ${className}`}>

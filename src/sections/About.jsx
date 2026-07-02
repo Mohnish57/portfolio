@@ -13,7 +13,7 @@ const pillars = [
 export default function About() {
   return (
     <Section id="about" tone="white">
-      <SectionHeading index="01" eyebrow="About the Author" title="Frontend, built to scale." />
+      <SectionHeading eyebrow="About the Author" title="Frontend, built to scale." />
 
       {/* Capability list as collapsed-border icon boxes */}
       <div className="grid grid-cols-1 border-l border-t border-foreground sm:grid-cols-2 lg:grid-cols-4">

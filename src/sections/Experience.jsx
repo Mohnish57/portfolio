@@ -8,7 +8,6 @@ export default function Experience() {
   return (
     <Section id="work" tone="white">
       <SectionHeading
-        index="03"
         eyebrow="On the Record"
         title="Where I've shipped."
         sub="Frontend roles across AI, commerce, and media — leading architecture and delivery."
@@ -24,10 +23,7 @@ export default function Experience() {
                 {...(job.url ? { href: job.url, target: '_blank', rel: 'noreferrer' } : {})}
                 className="group grid grid-cols-1 items-baseline border-b border-foreground transition-colors duration-200 hover:bg-neutral-100 md:grid-cols-12"
               >
-                <span className="px-2 py-5 font-mono text-xs uppercase tracking-widest text-accent md:col-span-1 md:py-7">
-                  0{i + 1}
-                </span>
-                <div className="px-2 pb-2 pt-0 md:col-span-7 md:border-l md:border-muted md:py-7 md:pl-6">
+                <div className="px-2 pb-2 pt-5 md:col-span-8 md:py-7">
                   <h3 className="flex items-center gap-2 font-serif text-2xl font-bold text-foreground lg:text-3xl">
                     {job.company}
                     {job.url && (

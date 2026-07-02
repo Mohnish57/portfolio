@@ -103,7 +103,7 @@ export default function Projects() {
           <div className="border-b-4 border-foreground pb-5">
             <div className="flex items-center justify-between">
               <span className="font-mono text-xs font-medium uppercase tracking-widest text-foreground">
-                04 · Featured Stories
+                Featured Stories
               </span>
               <span className="font-mono text-[10px] uppercase tracking-widest text-neutral-600">
                 {projects.length} stories
@@ -138,7 +138,7 @@ export default function Projects() {
                   {p.year}
                 </span>
               </div>
-              <ImageBlock p={p} className="h-52 border-b border-foreground sm:h-60 lg:h-[44%]" />
+              <ImageBlock p={p} className="aspect-[16/10] w-full border-b border-foreground" />
               <div className="flex flex-1 flex-col p-6">
                 <h3 className="font-serif text-3xl font-black leading-tight text-foreground">
                   {p.name}

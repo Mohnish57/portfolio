@@ -8,7 +8,7 @@ import Reveal from '../components/Reveal'
 export default function Contact() {
   return (
     <Section id="contact" tone="white">
-      <SectionHeading index="06" eyebrow="Classifieds" title="Let's work together." />
+      <SectionHeading eyebrow="Classifieds" title="Let's work together." />
 
       <div className="grid grid-cols-1 border border-foreground lg:grid-cols-12">
         {/* The "advertisement" */}
